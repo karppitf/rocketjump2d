@@ -23,7 +23,7 @@ public class RocketScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Wall"))
+        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Explosion"))
         {
             Instantiate(Explosion, transform.position, transform.rotation);
 

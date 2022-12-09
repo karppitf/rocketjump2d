@@ -24,14 +24,16 @@ public class ShootingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MouseAiming();
-        if(Input.GetKey(KeyCode.Mouse0) && timer <= 0)
+        if(!WinGameScript.gameWon && !UIManagerScript.gamePaused)
         {
-            Shooting();
-        }
+            MouseAiming();
+            if (Input.GetKey(KeyCode.Mouse0) && timer <= 0)
+            {
+                Shooting();
+            }
 
-        timer -= Time.deltaTime;
-
+            timer -= Time.deltaTime;
+        }     
     }
 
     void MouseAiming()
